@@ -26,13 +26,16 @@ model Post {
   title  String
   content String
   comments Comment[]
-  starting_price BigInt
-  current_price BigInt
+  starting_price Int
+  current_price Int
   category_type String
+  images String[]
   publicInfo PublicInfo @default(PUBLIC)
-  create_date DateTime @default(now())
+  create_date DateTime 
+  end_date Int
   update_date DateTime @updatedAt
 }
+
 model Comment {
   cid String @id @default(auto()) @map("_id") @db.ObjectId
   post Post @relation(fields: [id],references: [id])
@@ -46,13 +49,6 @@ model Category{
     id String @id @default(auto()) @map("_id") @db.ObjectId
     category_type String
     category_tag String
-}
-model Image{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  postId String
-}
-model ImageFile{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
 }
 
 enum Role {
