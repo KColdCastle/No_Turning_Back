@@ -27,7 +27,7 @@ export async function POST(req:NextRequest, res: NextResponse) {
         categoryname: data[0].categoryname,
         images: data[0].images,
         // endDate : new Date().getTime() + 86400000,
-        endDate : new Date().getTime() + 360000,
+        endDate : new Date().getTime() + 180000,
         category: selectedCategory,
         
     }
